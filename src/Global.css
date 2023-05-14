@@ -22,8 +22,8 @@
     align-items: center;
     border: none;
     gap: 10px;
-    width: 42px;
-    height: 42px;
+    min-width: 42px;
+    min-height: 42px;
     background: #053C63;
     border-radius: 10px;
     color: #2E80B9;
@@ -75,7 +75,7 @@
     align-items: center;
     padding: 10px;
     gap: 8px;
-    border-radius: 10px;
+    border-radius: 10px;    
 }
 
 .bgmsg > img {
@@ -85,6 +85,7 @@
 }
 
 .msgcon {
+    max-width: 80%;
     display: flex;
     flex-direction: column;
     width: 100%;
@@ -104,6 +105,10 @@
 }
 
 .lastmsg {
+    white-space: nowrap;
+    max-width: 100%;
+    overflow: hidden;
+    text-overflow: ellipsis;
     color: rgba(225, 236, 247, 0.8);
 }
 
@@ -119,5 +124,4 @@ p {margin: 0;}
     display: flex ;
     gap: 10px;
     flex-direction: column;
-
 }

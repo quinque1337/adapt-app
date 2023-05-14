@@ -14,12 +14,12 @@ function Home() {
         <Contact 
         src="https://cdn.discordapp.com/attachments/650015284693958686/780472191014666252/Final.gif" 
         nickname="GreyDJ" 
-        lastmsg="Я соса" 
+        lastmsg="Ты заставлял меня сосать но я тебе не сосала, ты заставлял меня сосать но" 
         timemsg="10:32"/>
         <Contact 
         src="https://cdn.discordapp.com/attachments/650015284693958686/780472191014666252/Final.gif" 
         nickname="quinque" 
-        lastmsg="гав..." 
+        lastmsg="гавмякщшлцутполщджвфыатполджфыватьполджвфаытполджыватполщдфвыатдшлирычвсапощдртьващжшплшзжфывазшжщпофувджщпть" 
         timemsg="10:32"/>
         <Contact 
         src="https://cdn.discordapp.com/attachments/650015284693958686/780472191014666252/Final.gif" 

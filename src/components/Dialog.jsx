@@ -1,25 +1,19 @@
 import '../Global.css'
-import Dialogbutton from './Dialogbutton';
+import DialogTopBar from './DialogTopBar';
+import MessageContainer from './MessageContainer';
+import Messageinput from './Messageinput';
 
 function Dialog(props) {
     return (
         <div className='dialog'>
-      <div className='dialognavbar'>
-        <div className='user'>
-            <div className='aboutuser'>
-                <img style={{userSelect: 'none'}} src={props.src} alt={props.nickname}/>
-                <div className='navbaruserprofileinfo'>
-                    <p className='username'>{props.username}</p>
-                    <p className='status'>{props.status}</p>
-                </div>
-            </div>
-            <div className='dialogbuttons'>
-                <Dialogbutton icon="search"/>
-                <Dialogbutton icon="settings"/>
-            </div>
+            <DialogTopBar 
+                username={props.username}
+                status={props.status}
+                src={props.src}
+            />
+            <MessageContainer />
+            <Messageinput text={props.text}/>
         </div>
-      </div>
-    </div>
     )
 }
 

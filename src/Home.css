@@ -1,10 +1,15 @@
 body {
+  height: 100vh;
+}
+
+#root {
   margin-left: 10px;
   margin-right: 10px;
   background-color: #00111C;
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 10px;
+  height: 100%;
 }
 
 .top {

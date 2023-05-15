@@ -78,6 +78,11 @@
     border-radius: 10px;    
 }
 
+.active > .bgmsg {
+    background-color: #00416E;
+    outline: 3px solid #266A99;
+}
+
 .bgmsg > img {
     height: 50px;
     width: 50px;
@@ -90,6 +95,15 @@
     flex-direction: column;
     width: 100%;
     gap: 4px;
+    user-select: none;
+    cursor: pointer;
+}
+
+.msgtext {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    gap: 5px;
 }
 
 .parasha {
@@ -124,4 +138,87 @@ p {margin: 0;}
     display: flex ;
     gap: 10px;
     flex-direction: column;
+}
+
+.msgcounter {
+    display: flex;
+    width: 26;
+    height: 20;
+    background: #10BB92;
+    border-radius: 25px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 0 5px;
+}
+
+a {
+    text-decoration: none;
+}
+
+.dialog {
+    background-image: url("./images/Rectangle 5.png");
+    border-radius: 10px;
+    min-height: calc(100%-20px);
+    margin-bottom: 10px;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+}
+
+.dialognavbar {
+    background-color: #002E4E;
+    border-radius: 10px 10px 0 0;
+    height: calc(65px - 20px);
+    padding: 15px;
+}
+
+.user > .aboutuser > img {
+    height: 45px;
+    width: 45px;
+    border-radius: 999px;
+}
+
+.user, .aboutuser {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+}
+
+.navbaruserprofileinfo {
+    display: flex;
+    flex-direction: column;
+}
+
+.username {
+    font-size: 19px;
+    color: white;
+}
+
+.status {
+    font-size: 14px;
+    color: #3f9cde;
+}
+
+.dialogbuttons {
+    display: flex;
+}
+
+.dbutton:hover {
+    background: #053c63;
+}
+
+.dbutton {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    min-width: 42px;
+    min-height: 42px;
+    background: transparent;
+    border-radius: 10px;
+    color: #2E80B9;
+    cursor: pointer;
 }

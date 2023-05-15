@@ -4,8 +4,6 @@ import Contact from './components/Contact';
 import Input from './components/Input';
 import Dialog from './components/Dialog'
 import {
-  Route,
-  Routes,
   NavLink,
   HashRouter
 } from "react-router-dom"
@@ -14,7 +12,7 @@ function Home() {
   return (
     <HashRouter><div id=''>
       <div id='top' className='top'>
-        <Button icon="settings" />
+      <NavLink to="/settings"><Button icon="settings" /></NavLink>
         <Input icon="search" text="Поиск" />
       </div>
       <div id='contacts' className='concha'>
@@ -29,7 +27,7 @@ function Home() {
         <NavLink to="/"><Contact 
         src="https://i.imgur.com/H0lyGBF.jpeg" 
         nickname="quinque" 
-        lastmsg="сосу" 
+        lastmsg="cock" 
         timemsg="10:32"
         msgcounter="0"/></NavLink>
       </div>
@@ -38,6 +36,7 @@ function Home() {
     src="https://i.imgur.com/H0lyGBF.jpeg"
     username="quinque"
     status="онлайн"
+    text="Писать суда"
     />
     </HashRouter>
   );

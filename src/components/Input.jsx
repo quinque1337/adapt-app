@@ -8,7 +8,7 @@ function Input(props) {
                 {props.icon}
             </span> : ''
             }
-            <input placeholder={props.text} />
+            <input onInput={props.onInput} className={props.className} placeholder={props.text} />
         </div>
     )
 }

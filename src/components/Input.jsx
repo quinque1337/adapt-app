@@ -4,7 +4,7 @@ function Input(props) {
     return (
         <div className='bgsearch'>
             { props.icon ?
-            <span class="material-symbols-outlined">
+            <span className="material-symbols-outlined">
                 {props.icon}
             </span> : ''
             }

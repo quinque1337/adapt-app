@@ -4,7 +4,7 @@ function Button(props) {
     return (
         <button className="button">
             { props.icon ?
-            <span class="material-symbols-outlined">
+            <span className="material-symbols-outlined">
                 {props.icon}
             </span> : ''
             }

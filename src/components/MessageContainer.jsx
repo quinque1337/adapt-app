@@ -1,7 +1,18 @@
+import { useEffect, useRef, useState } from 'react';
 import '../Global.css'
 import Message from './Message';
 
 function MessageContainer(props) {
+
+    const bottomRef = useRef(null);
+    const [scrolled, setScrolled] = useState(false);
+    useEffect(()=>{
+        // сделайте потом как сообщения сделаете чтобы эта хрень вызывалась когда сообщения все прогрузились, ну типа просто переменную сообщений вниз в список поставьте
+        // и еще как нибудь сделайте чтобы до непрочитанного не скроллилось хихи хаха
+        bottomRef.current?.scrollIntoView({});
+        setScrolled(true)
+    }, [scrolled])
+    
     return (
         <div className='messages'>
             <Message
@@ -62,6 +73,9 @@ function MessageContainer(props) {
             msg="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
             time="1:00"
             type="me"/>
+
+        <div ref={bottomRef} />
+        {/* не удаляйте строчку выше */}
         </div>
     )
 }

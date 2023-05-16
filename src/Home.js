@@ -1,10 +1,14 @@
 import './Home.css';
-import Messenger from './screens/messenger';
+import LogIn from './screens/login';
+// import Messenger from './screens/messenger';
 
 function Home() {
-  return (
-    <Messenger />
-  );
+  return <LogIn
+  h1="Я волосатый мужик"
+  h2="Adapt." />
+  // return (
+  //   <Messenger />
+  // );
 }
 
 export default Home;

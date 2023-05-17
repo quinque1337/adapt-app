@@ -1,9 +1,8 @@
-import '../Global.css';
 import { HashRouter, NavLink } from "react-router-dom";
 import Input from "../components/Input";
 import Contact from "../components/Contact";
-import Dialog from "../components/Dialog";
 import Button from "../components/Button";
+import lines from "../images/lines.png"
 
 function Messenger(props) {
     return (
@@ -29,12 +28,10 @@ function Messenger(props) {
                     msgcounter="0" /></NavLink>
             </div>
         </div>
-            <Dialog
-                src="https://i.imgur.com/H0lyGBF.jpeg"
-                username="quinque"
-                status="онлайн"
-                text="Писать суда"
-            />
+        <div className="emptybackground">
+            <p>Откройте чат</p>
+            <img src={lines} className="emptybgimage"></img>
+        </div>
         </HashRouter>
     )
 }

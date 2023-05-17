@@ -4,7 +4,7 @@ function Dialogbutton(props) {
     return (
         <button className={"dbutton "+props.className}>
             { props.icon ?
-            <span class="material-symbols-outlined">
+            <span className="material-symbols-outlined">
                 {props.icon}
             </span> : ''
             }

@@ -326,3 +326,38 @@ a {
     justify-content: flex-end;
     margin-right: 10px;
 }
+
+.logIn-Background {
+    background-image: url("./images/lines_bg.png");
+    border-radius: 10px;
+    margin-bottom: 10px;
+    width: calc(100vw - 80px);
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    padding: 20px 30px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+}
+
+.logIn-HeaderContainer > h1 {
+    font-size: 40px;
+}
+
+.logIn-HeaderContainer > h2 {
+    font-size: 24px;
+}
+
+.logIn-HeaderContainer > h1,
+.logIn-HeaderContainer > h2 {
+    color: white;
+    font-weight: 400;
+    margin: 0;
+}
+
+.logIn-HeaderContainer {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

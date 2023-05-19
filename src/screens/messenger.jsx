@@ -32,7 +32,7 @@ function Messenger(props) {
             <Dialog
                 src="https://i.imgur.com/H0lyGBF.jpeg"
                 username="quinque"
-                status="онлайн"
+                status="офлайн"
                 text="Писать суда"
             />
         </HashRouter>

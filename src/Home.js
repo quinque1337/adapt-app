@@ -1,6 +1,6 @@
 import './Home.css';
 import LogIn from './screens/login';
-import LogIn_S2 from './screens/login_stage2';
+import LogInS2 from './screens/login_stage2';
 import Register from './screens/register';
 import Messenger from './screens/messenger';
 import Empty from './screens/Empty_msg'
@@ -24,7 +24,7 @@ function Home() {
       h2="Зарегистрируйся, пожалуйста ^^"/>
 
     case 3:
-      return <LogIn_S2
+      return <LogInS2
       h1="Привет"
       user="Егор"
       h2="Введите свой пароль ниже" />
@@ -36,7 +36,10 @@ function Home() {
 
     case 5:
       return <Messenger />
-
+    default:
+      return <LogIn
+      h1="Привет" 
+      h2="Введите свой пароль ниже" />
   }
 }
 

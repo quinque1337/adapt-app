@@ -1,5 +1,4 @@
 import '../Global.css'
-import Button from './Button'
 
 function Chat_Settings(props) {
     return (

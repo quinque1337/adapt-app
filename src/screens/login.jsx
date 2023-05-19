@@ -9,7 +9,7 @@ function LogIn(props) {
                 <h2>{props.h2}</h2>
             </div>
             <div className='logIn-Container'>
-                <Login/>
+                <Login setLogin={props.setLogin} />
             </div>
         </div>
     )

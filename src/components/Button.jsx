@@ -2,7 +2,7 @@ import '../Global.css'
 
 function Button(props) {
     return (
-        <button className="button" style={{
+        <button onClick={props.onClick} className="button" style={{
             backgroundColor: props.bg, 
             color: props.color, fontSize: props.fontsize
             }}>

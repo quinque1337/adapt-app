@@ -3,6 +3,9 @@ import ButtonN from '../components/ButtonNolog';
 import Login from '../components/Login';
 
 function LogIn(props) {
+
+
+
     return (
         <div className="logIn-Background">
             <div className='logIn-HeaderContainer'>
@@ -12,7 +15,7 @@ function LogIn(props) {
             <div className='loginreturn'>
                 <Login className='logIn-Container'/>
                 <div>
-                    <ButtonN className="buttonreturn" user={props.user}/>
+                    <ButtonN className="buttonreturn" user={props.user} />
                 </div>
             </div>
 

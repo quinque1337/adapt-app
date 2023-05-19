@@ -1,7 +1,10 @@
 import '../Global.css'
 import Input from './Input';
+import axios from 'axios';
+import React, { useEffect, useState } from 'react';
 
 function login_input(props) {
+
     return (
         <div className='register'>
             <Input className="message-input" icon="Fingerprint" text="Николай Андреевич"/>

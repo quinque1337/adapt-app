@@ -1,7 +1,6 @@
 import { useEffect, useRef, useState } from 'react';
 import '../Global.css'
 import Message from './Message';
-import Chat_Date from './Chat_Date'
 function MessageContainer(props) {
 
     const bottomRef = useRef(null);

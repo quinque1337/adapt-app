@@ -30,7 +30,7 @@ function Messenger(props) {
         </div>
         <div className="emptybackground">
             <p>Откройте чат</p>
-            <img src={lines} className="emptybgimage"></img>
+            <img alt='' src={lines} className="emptybgimage"></img>
         </div>
         </HashRouter>
     )

@@ -12,7 +12,7 @@ function Input(props) {
                 {props.icon}
             </span> : ''
             }
-            <input value={value} onChange={(v)=>{setValue(v.target.value);props.onChange(v.target.value)}} onInput={props.onInput} className={props.className} placeholder={props.text} />
+            <input value={value} onChange={(v)=>{setValue(v.target.value);try{props.onChange(v.target.value)}catch{}}} onInput={props.onInput} className={props.className} placeholder={props.text} />
         </div>
         {props.label ? <label>{props.label}</label> : ''}
         </div>

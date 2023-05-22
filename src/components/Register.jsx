@@ -1,19 +1,16 @@
 import '../Global.css'
 import Input from './Input';
-import axios from 'axios';
-import React, { useEffect, useState } from 'react';
 
-function login_input(props) {
+function Register(props) {
 
     return (
         <div className='register'>
-            <Input className="message-input" icon="Fingerprint" text="Николай Андреевич"/>
-            <Input label="Только латиница!" className="message-input" icon="alternate_email" text="nikandr" />
-            <Input label="Минимум 5 символов" className="message-input" icon="Pin" text="*************" />
+            <Input label="Максимум 30 символов" className="message-input" icon="Fingerprint" text="Николай Андреевич" onChange={props.setNickname}/>
+            <Input label="Минимум 5 символов" className="message-input" icon="Pin" text="*************" onChange={props.setPassword}/>
             <Input label="Неправильный повтор пароля" className="message-input" icon="Pin" text="************* еще раз" />
         </div>
     )
 }
 
 
-export default login_input;
+export default Register;

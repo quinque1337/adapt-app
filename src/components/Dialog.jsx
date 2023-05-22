@@ -1,9 +1,9 @@
 import '../Global.css'
-import Chat_Settings from './Chat_Settings';
+import ChatSettings from './Chat_Settings';
 import DialogTopBar from './DialogTopBar';
 import MessageContainer from './MessageContainer';
 import Messageinput from './Messageinput';
-import Chat_Date from './Chat_Date'
+import ChatDate from './Chat_Date'
 
 function Dialog(props) {
     return (
@@ -14,8 +14,8 @@ function Dialog(props) {
                 src={props.src}
                 color="#6f6f6f"
             />
-            <Chat_Settings/>
-            <Chat_Date/>
+            <ChatSettings/>
+            <ChatDate/>
             <MessageContainer />
             <Messageinput text={props.text}/>
         </div>

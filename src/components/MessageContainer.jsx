@@ -1,7 +1,7 @@
 import { useEffect, useRef, useState } from 'react';
 import '../Global.css'
 import Message from './Message';
-
+import Chat_Date from './Chat_Date'
 function MessageContainer(props) {
 
     const bottomRef = useRef(null);
@@ -14,7 +14,7 @@ function MessageContainer(props) {
     }, [scrolled])
     
     return (
-        <div className='messages'>
+            <div className='messages'>
             <Message
             msg="Lorem ipsum dolor sit amet."
             time="1:00"/>
@@ -53,7 +53,7 @@ function MessageContainer(props) {
             time="11:00"
             type="me"/>
         
-        <Message
+                        <Message
             msg="Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Aenean commodo ligula eget dolor. Aenean massa."
             time="1:00"
             type="me"/>
@@ -74,9 +74,9 @@ function MessageContainer(props) {
             time="1:00"
             type="me"/>
 
-        <div ref={bottomRef} />
-        {/* не удаляйте строчку выше */}
-        </div>
+            <div ref={bottomRef} />
+             {/* не удаляйте строчку выше */}
+            </div>
     )
 }
 

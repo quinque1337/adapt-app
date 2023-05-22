@@ -21,6 +21,9 @@ border-radius: 20px;       /* закругления плашки */
 border: 3px solid rgba(255, 166, 0, 0);  /* padding вокруг плашки */
 }
 
+h2 {
+    font-weight: 400;
+}
 
 .fadein {
     animation: fadein 0.3s;
@@ -103,6 +106,10 @@ border: 3px solid rgba(255, 166, 0, 0);  /* padding вокруг плашки */
     border-radius: 10px;    
 }
 
+.bgmsg, .button {
+    outline: 0px solid #266A99;
+}
+
 .active > .bgmsg, .active > .button {
     background-color: #00416E;
     outline: 3px solid #266A99;
@@ -116,6 +123,12 @@ border: 3px solid rgba(255, 166, 0, 0);  /* padding вокруг плашки */
 .bgmsg > img {
     height: 50px;
     width: 50px;
+    border-radius: 999px;
+}
+
+.rightsettings > img {
+    height: 42px;
+    width: 42px;
     border-radius: 999px;
 }
 
@@ -140,7 +153,6 @@ border: 3px solid rgba(255, 166, 0, 0);  /* padding вокруг плашки */
     display: flex;
     flex-direction: row;
     width: 100%;
-    display: flex;
     justify-content: space-between;
 }
 
@@ -181,6 +193,20 @@ p {margin: 0;}
     align-items: center;
     padding: 0 5px;
     color: black;
+}
+
+.msgcount {
+    display: flex;
+    width: 26;
+    height: 20;
+    background: #001625;
+    border-radius: 10px;
+    gap: 10px;
+    justify-content: center;
+    align-items: center;
+    padding: 5px 8px;
+    font-size: 16px;
+    color: white;
 }
 
 a {
@@ -303,7 +329,6 @@ a {
     margin-bottom: 10px;
     margin-top: 1px;
     border-radius: 10px;
-    padding-bottom: 10px;
     padding-top: 10px;
 }
 
@@ -339,6 +364,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: center;
+    gap:30px;
 }
 
 .logIn-HeaderContainer > h1 {
@@ -360,4 +386,164 @@ a {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.loginput {
+    display: flex;
+    gap: 10px;
+    max-width: 360px;
+}
+
+.buttonreturn {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    border: none;
+    gap: 10px;
+    min-width: 42px;
+    min-height: 42px;
+    background: #053C63;
+    border-radius: 10px;
+    color: #2E80B9;
+    cursor: pointer;
+    font-size: 20px;
+}
+
+.buttonreturn:hover {
+    filter: brightness(1.3);
+}
+
+.buttonreturn:active {
+    transform: scale(0.95);
+}
+
+.loginreturn {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-width: 360px;
+}
+
+.register {
+    display: flex;
+    flex-direction: column;
+    gap:10px;
+    max-width: 300px;
+}
+.reg {
+    display: flex;
+    flex-direction: row;
+    gap:30px;
+}
+
+.regbutton {
+    display: flex;
+    gap: 8px;
+}
+
+label {
+    color: #FF6969;
+    font-size: 15px;
+}
+
+.emptybackground {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    font-weight: 400;
+    font-size: 20px;
+}
+
+.emptybgimage {
+    position: absolute;
+    bottom: 0;
+    right: 0;
+}
+
+.settings_background {
+    display: flex;
+    justify-content: center;
+    background-color: #002E4E;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+.settingscenter {
+    display: flex;
+    max-width: 500px;
+    width: 100%;
+    flex-direction: column;
+    color: white;
+    gap: 10px;
+    justify-content: space-between;
+    padding-bottom: 10px;
+}
+
+.setname {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #002844;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+.setava {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #002844;
+    border-radius: 10px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.width100 {
+    width: 100%
+}
+
+.rightsettings {
+    display: flex;
+    gap: 10px;
+}
+
+.statistic {
+    display: flex;
+    justify-items: center;
+    align-items: center;
+    gap: 10px;
+    background-color: #002844;
+    border-radius: 10px;
+    padding: 10px;
+    justify-content: space-between;
+}
+
+.Chatsettingscontainer {
+    display: flex;
+    position: absolute;
+    right: 25px;
+    top: 80px;
+    flex-direction: column;
+    background-color: #002E4E;
+    border-radius: 10px;
+    gap: 10px;
+    padding: 10px;
+}
+
+.Datecontainer {
+    display: flex;
+    position: absolute;
+    background-color: #002E4E;
+    margin: 100px;
+    padding: 5px;
+    border-radius: 5px;
+    margin: 0 auto;
+    left: 50%;
+    margin-left: 100px;
+    top: 80px;
+    color: white;
 }

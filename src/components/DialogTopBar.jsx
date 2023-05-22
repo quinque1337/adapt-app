@@ -1,4 +1,5 @@
 import Dialogbutton from "./Dialogbutton";
+import Input from "./Input";
 
 function DialogTopBar(props) {
     return (
@@ -8,11 +9,11 @@ function DialogTopBar(props) {
                     <img style={{ userSelect: 'none' }} src={props.src} alt={props.username} />
                     <div className='navbaruserprofileinfo'>
                         <p className='username'>{props.username}</p>
-                        <p className='status'>{props.status}</p>
+                        <p className='status'  style={{ color: props.color}}>{props.status}</p>
                     </div>
                 </div>
                 <div className='dialogbuttons'>
-                    <Dialogbutton icon="search" />
+                    <Input icon="search"/>
                     <Dialogbutton icon="settings" />
                 </div>
             </div>

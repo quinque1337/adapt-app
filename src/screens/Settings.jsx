@@ -1,11 +1,10 @@
-import '../Global.css';
 import { HashRouter, NavLink } from "react-router-dom";
 import Input from "../components/Input";
 import Contact from "../components/Contact";
-import Dialog from "../components/Dialog";
 import Button from "../components/Button";
+import Settingscomp from "../components/Settings_comp"
 
-function Messenger(props) {
+function Settings(props) {
     return (
         <HashRouter><div id=''>
             <div id='top' className='top'>
@@ -29,14 +28,9 @@ function Messenger(props) {
                     msgcounter="0" /></NavLink>
             </div>
         </div>
-            <Dialog
-                src="https://i.imgur.com/H0lyGBF.jpeg"
-                username="quinque"
-                status="офлайн"
-                text="Писать суда"
-            />
+        <Settingscomp/>
         </HashRouter>
     )
 }
 
-export default Messenger;
+export default Settings;

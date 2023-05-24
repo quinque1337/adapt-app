@@ -28,7 +28,7 @@ function Settings(props) {
                     msgcounter="0" /></NavLink>
             </div>
         </div>
-        <Settingscomp/>
+        <Settingscomp version={props.version} />
         </HashRouter>
     )
 }

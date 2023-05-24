@@ -25,9 +25,10 @@ function settings(props) {
                     <p className='msgcount'>12</p>
                 </div>
                 <div className='statistic'>
-                    <p>Версия программы</p>
-                    <p className='msgcount'>Beta 1.0</p>
+                    <p>Adapt Desktop</p>
+                    <p className='msgcount'>{props.version}</p>
                 </div>
+                <p class="withlove">From Adapt Team with love</p>
             </div>
             <Button text="Сохранить" bg="#10BB92" color="#0F494A" fontsize="20px"/>
             </div>

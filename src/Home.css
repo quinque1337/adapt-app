@@ -5,7 +5,7 @@ body {
 #root {
   margin-left: 10px;
   margin-right: 10px;
-  background-color: #00111C;
+  background-color: var(--bg-color);
   display: grid;
   grid-template-columns: 300px 1fr;
   gap: 10px;

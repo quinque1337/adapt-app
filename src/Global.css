@@ -21,6 +21,59 @@ border-radius: 20px;       /* закругления плашки */
 border: 3px solid rgba(255, 166, 0, 0);  /* padding вокруг плашки */
 }
 
+:root[theme='white'] {
+    --bg-color:#D1D1F5;
+    --accent-color: #B0C7EA;
+    --accent-color-two:#92a7c6;
+    --button-color: #7C96D6;
+    --text-color: black;
+    --lastmsg-color: rgba(16, 17, 18, 0.8);
+    --lasttime-color: rgba(16, 17, 18, 0.49);
+    --timemsg-color: #13344B;
+    --online-color: #266A99;
+    --button-icon-color: #2E80B9;
+    --scrollbar-color: rgba(255, 255, 255, 0.192);
+    --scrollbar-border: 3px solid rgba(255, 166, 0, 0);
+    --search-color: rgba(0, 0, 0, 0.6);
+    --search-bg-color: #B0C7EA;
+    --outline: #6A72AF;
+    --msgcounter-color: #7D97D9;
+    --message-time-color: #13344B;
+    --active: #7C96D6;
+    --messageinput-color: #002844;
+    --message-me-color:#D1D1F5;
+    --label-color: #FF6969;
+    --love-color: #266a99;
+    --bg-active-color: #568fb7;
+    --bg-setname-color: #B0C7EA;
+}
+:root {
+    --bg-color:#00111C;
+    --accent-color: #002E4E;
+    --accent-color-two:#002844;
+    --button-color: #053C63;
+    --text-color: white;
+    --lastmsg-color: rgba(225, 236, 247, 0.8);
+    --lasttime-color: rgba(225, 236, 247, 0.49);
+    --timemsg-color: #266A99;
+    --online-color: #266A99;
+    --button-icon-color: #2E80B9;
+    --scrollbar-color: rgba(0, 0, 0, 0.192);
+    --scrollbar-border: 3px solid rgba(255, 166, 0, 0);
+    --search-color: #266A99;
+    --search-bg-color: #002844;
+    --outline: #266A99;
+    --msgcounter-color: #10BB92;
+    --message-time-color: #002844;
+    --active: #053c63;
+    --messageinput-color: #002844;
+    --message-me-color:#005997;
+    --label-color: #FF6969;
+    --love-color: #266a99;
+    --bg-active-color: #00416E;
+    --bg-setname-color: rgb(0, 22, 37);
+}
+
 h2 {
     font-weight: 400;
 }
@@ -51,9 +104,9 @@ h2 {
     gap: 10px;
     min-width: 42px;
     min-height: 42px;
-    background: #053C63;
+    background: var(--button-color);
     border-radius: 10px;
-    color: #2E80B9;
+    color: var(--button-icon-color);
     cursor: pointer;
 }
 
@@ -71,8 +124,8 @@ h2 {
     align-items: center;
     padding: 10px;
     gap: 10px;
-    color: #266A99;
-    background: #002844;
+    color: var(--search-color);
+    background: var(--search-bg-color);
     border-radius: 10px;
     width: 100%;
     box-sizing: border-box;
@@ -81,13 +134,13 @@ h2 {
 .bgsearch > input {
     background-color: transparent;
     border: none;
-    color: white;
+    color: var(--text-color);
     font-size: 15px;
     width: 100%;
 }
 
 .bgsearch > input::placeholder {
-    color: #266A99;
+    color: var(--search-color);
 }
 
 .bgsearch > input:focus {
@@ -95,7 +148,7 @@ h2 {
 }
 
 .bgmsg {
-    background-color: #002E4E;
+    background-color: var(--accent-color);
     display: flex;
     flex-direction: row;
     display: flex;
@@ -107,16 +160,16 @@ h2 {
 }
 
 .bgmsg, .button {
-    outline: 0px solid #266A99;
+    outline: 0px solid var(--outline);
 }
 
 .active > .bgmsg, .active > .button {
-    background-color: #00416E;
-    outline: 3px solid #266A99;
+    background-color: var(--bg-active-color);
+    outline: 3px solid var(--outline);
 }
 
 .active > .button {
-    border: 3px solid #266A99;
+    border: 3px solid var(--outline);
     outline: none;
 }
 
@@ -157,7 +210,7 @@ h2 {
 }
 
 .nickname {
-    color: white;
+    color: var(--text-color);
 }
 
 .lastmsg {
@@ -165,11 +218,11 @@ h2 {
     max-width: 100%;
     overflow: hidden;
     text-overflow: ellipsis;
-    color: rgba(225, 236, 247, 0.8);
+    color: var(--lastmsg-color);
 }
 
 .timemsg {
-    color: rgba(225, 236, 247, 0.5);
+    color: var(--lasttime-color);
 
 }
 
@@ -186,27 +239,27 @@ p {margin: 0;}
     display: flex;
     width: 26;
     height: 20;
-    background: #10BB92;
+    background: var(--msgcounter-color);
     border-radius: 25px;
     gap: 10px;
     justify-content: center;
     align-items: center;
     padding: 0 5px;
-    color: black;
+    color: var(--text-color);
 }
 
 .msgcount {
     display: flex;
     width: 26;
     height: 20;
-    background: #001625;
+    background: var(--msgcounter-color);
     border-radius: 10px;
     gap: 10px;
     justify-content: center;
     align-items: center;
     padding: 5px 8px;
     font-size: 16px;
-    color: white;
+    color: var(--text-color);
 }
 
 a {
@@ -228,7 +281,7 @@ a {
 }
 
 .dialognavbar {
-    background-color: #002E4E;
+    background-color: var(--accent-color);
     border-radius: 10px 10px 0 0;
     height: calc(65px - 20px);
     padding: 15px;
@@ -254,12 +307,12 @@ a {
 
 .username {
     font-size: 19px;
-    color: white;
+    color: var(--text-color);
 }
 
 .status {
     font-size: 14px;
-    color: #3f9cde;
+    color: var(--online-color);
 }
 
 .dialogbuttons {
@@ -268,7 +321,7 @@ a {
 }
 
 .dbutton:hover {
-    background: #053c63;
+    background: var(--active);
 }
 
 .dbutton {
@@ -281,13 +334,13 @@ a {
     height: 42px;
     background: transparent;
     border-radius: 10px;
-    color: #2E80B9;
+    color: var(--button-icon-color);
     cursor: pointer;
 }
 
 .messageinputcontainer {
     display: flex;
-    background-color: #002844;
+    background-color: var(--messageinput-color);
     margin:10px;
     margin-top: 0px;
     border-radius: 10px;
@@ -309,11 +362,11 @@ a {
 }
 
 .Messagecontainer {
-    background-color: #002E4E;
+    background-color: var(--accent-color);
     width: fit-content;
     border-radius: 10px;
     padding: 10px 15px;
-    color: white;
+    color: var(--text-color);
     display: flex;
     max-width: min(50%, 480px);
 }
@@ -333,7 +386,7 @@ a {
 }
 
 .Messagecontainer > .time {
-    border: #002844;
+    border: var(--message-time-color);
     display: flex;
     flex-direction: column-reverse;
     font-size: 13px;
@@ -343,7 +396,7 @@ a {
 
 .Messagecontainer.me {
     display: flex;
-    background-color: #005997;
+    background-color: var(--message-me-color);
     justify-content: right;
 }
 .messagecon.me {
@@ -381,7 +434,7 @@ h1,h2,h3,h4,h5 {
 
 .logIn-HeaderContainer > h1,
 .logIn-HeaderContainer > h2 {
-    color: white;
+    color: var(--text-color);
     font-weight: 400;
     margin: 0;
 }
@@ -407,9 +460,9 @@ h1,h2,h3,h4,h5 {
     gap: 10px;
     min-width: 42px;
     min-height: 42px;
-    background: #053C63;
+    background: var(--button-color);
     border-radius: 10px;
-    color: #2E80B9;
+    color: var(--button-icon-color);
     cursor: pointer;
     font-size: 20px;
 }
@@ -447,7 +500,7 @@ h1,h2,h3,h4,h5 {
 }
 
 label {
-    color: #FF6969;
+    color: var(label-color);
     font-size: 15px;
 }
 
@@ -455,7 +508,7 @@ label {
     display: flex;
     justify-content: center;
     align-items: center;
-    color: white;
+    color: var(--text-color);
     font-weight: 400;
     font-size: 20px;
 }
@@ -469,7 +522,7 @@ label {
 .settings_background {
     display: flex;
     justify-content: center;
-    background-color: #002E4E;
+    background-color: var(--accent-color);
     border-radius: 10px;
     margin-bottom: 10px;
     height: calc(100vh - 10px);
@@ -480,7 +533,7 @@ label {
     max-width: 500px;
     width: 100%;
     flex-direction: column;
-    color: white;
+    color: var(--text-color);
     gap: 10px;
     justify-content: space-between;
     padding-bottom: 10px;
@@ -491,7 +544,7 @@ label {
     width: 100%;
     display: flex;
     justify-content: center;
-    color: #266a99;
+    color: var(--love-color);
     padding-top: 5px;
 }
 
@@ -500,7 +553,7 @@ label {
     justify-items: center;
     align-items: center;
     gap: 10px;
-    background-color: #002844;
+    background-color: var(--accent-color-two);
     border-radius: 10px;
     padding: 10px;
 }
@@ -510,7 +563,7 @@ label {
     justify-items: center;
     align-items: center;
     gap: 10px;
-    background-color: #002844;
+    background-color: var(--accent-color-two);
     border-radius: 10px;
     padding: 10px;
     justify-content: space-between;
@@ -530,7 +583,7 @@ label {
     justify-items: center;
     align-items: center;
     gap: 10px;
-    background-color: #002844;
+    background-color: var(--accent-color-two);
     border-radius: 10px;
     padding: 10px;
     justify-content: space-between;
@@ -542,7 +595,7 @@ label {
     right: 25px;
     top: 80px;
     flex-direction: column;
-    background-color: #002E4E;
+    background-color: var(--accent-color);
     border-radius: 10px;
     gap: 10px;
     padding: 10px;
@@ -551,7 +604,7 @@ label {
 .Datecontainer {
     display: flex;
     position: absolute;
-    background-color: #002E4E;
+    background-color: var(--accent-color);
     margin: 100px;
     padding: 5px;
     border-radius: 5px;
@@ -559,5 +612,5 @@ label {
     left: 50%;
     margin-left: 100px;
     top: 80px;
-    color: white;
+    color: var(--text-color);
 }

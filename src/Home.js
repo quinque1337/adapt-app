@@ -10,9 +10,10 @@ import axios from 'axios';
 
 var public_version = false
 var tested_version = false
-var version = '1.4'
+var version = '1.5'
 var version_string = ''
 
+// пиздец что это
 if (!tested_version) {public_version ? version_string+='_beta' : version_string+='_alpha'}
 else {public_version ? version_string+='_prod' : version_string+='_rc'}
 version_string+='_'+process.env.NODE_ENV.slice(0, 3)
@@ -23,7 +24,7 @@ function Home() {
 
   // Данные для проверки логина и последующей регистрации
   const [login, setLogin] = useState('')
-  const [screen, openScreen] = useState(4)
+  const [screen, openScreen] = useState(0)
   const [loginInputError, setLoginInputError] = useState('');
 
     // Данные для регистрации

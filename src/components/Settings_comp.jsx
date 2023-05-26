@@ -11,7 +11,7 @@ function settings(props) {
                     <h2>Настройки</h2>
                 <div className='setname'>
                     <p>Имя</p>
-                    <Input bg="#001625" value="Егор" />
+                    <Input bg='var(--bg-setname-color)' value="Егор" />
                 </div>
                 <div className='setava'>
                     <p>Аватарка</p>

@@ -10,7 +10,7 @@ import axios from 'axios';
 
 var public_version = false
 var tested_version = false
-var version = '1.5'
+var version = '1.6'
 var version_string = ''
 
 // пиздец что это
@@ -32,6 +32,8 @@ function Home() {
   const [password, setPassword] = useState('')
   const [register, setRegister] = useState(false)
   const [returnreg, ReturnRegister] = useState(false)
+
+  const [theme, setTheme] = useState('')
 
   // проверка логина
   useEffect(()=>{
@@ -66,11 +68,11 @@ function Home() {
       })
     }
   }, [nickname, password, register, login]);
-
+  // экраны
   switch (screen) {
 
     case 0:
-      return <Settings version={version_string} />
+      return <Settings version={version_string}/>
 
     case 1:
       return <Empty/>

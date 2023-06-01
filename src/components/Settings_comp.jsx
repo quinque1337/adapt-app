@@ -2,8 +2,12 @@
 import '../Global.css'
 import Input from "../components/Input"
 import Button from "../components/Button"
+import { useState } from 'react'
 
-function settings(props) {
+function Settings(props) {
+
+    const [themeName, setTheme] = useState('Тёмная');
+
     return (
         <div className='settings_background'>
             <div className='settingscenter'>
@@ -28,6 +32,21 @@ function settings(props) {
                     <p>Adapt Desktop</p>
                     <p className='msgcount'>{props.version}</p>
                 </div>
+                <div className='statistic'>
+                    <p>Тема</p>
+                    <Button text={themeName} fontsize="20px" onClick={()=>{
+                        var root = document.getElementsByTagName( 'html' )[0];
+                        var theme = root.getAttribute('theme')
+                        if (theme == 'white') {
+                            theme = 'dark'
+                            setTheme('Тёмная')
+                        } else {
+                            theme = 'white'
+                            setTheme('Светлая')
+                        }
+                        root.setAttribute( 'theme', theme );
+                    }}/>
+                </div>
                 <p class="withlove">From Adapt Team with love</p>
             </div>
             <Button text="Сохранить" bg="#10BB92" color="#0F494A" fontsize="20px"/>
@@ -36,4 +55,4 @@ function settings(props) {
     )
 }
 
-export default settings;
+export default Settings;

@@ -21,6 +21,14 @@ border-radius: 20px;       /* закругления плашки */
 border: 3px solid rgba(255, 166, 0, 0);  /* padding вокруг плашки */
 }
 
+:root {
+    --full-height: 100vh;
+}
+
+:root.electron {
+    --full-height: calc(100vh - 32px);
+}
+
 :root[theme='white'] {
     --bg-color:#D1D1F5;
     --accent-color: #B0C7EA;
@@ -73,6 +81,9 @@ border: 3px solid rgba(255, 166, 0, 0);  /* padding вокруг плашки */
     --bg-active-color: #00416E;
     --bg-setname-color: rgb(0, 22, 37);
 }
+
+.cet-control-icon, .cet-title {color: var(--text-color);}
+.cet-control-icon > svg {fill: var(--text-color)!important}
 
 h2 {
     font-weight: 400;
@@ -277,7 +288,7 @@ a {
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    height: calc(100vh - 10px);
+    height: calc(var(--full-height) - 10px);
 }
 
 .dialognavbar {
@@ -525,7 +536,7 @@ label {
     background-color: var(--accent-color);
     border-radius: 10px;
     margin-bottom: 10px;
-    height: calc(100vh - 10px);
+    height: calc(var(--full-height) - 10px);
 }
 
 .settingscenter {

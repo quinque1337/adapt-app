@@ -14,7 +14,7 @@ function RegisterScreen(props) {
                     </div>
                     <Register setName={props.setName} setNickname={props.setNickname} setPassword={props.setPassword}/>
                     <div className='regbutton'>
-                        <Button icon="arrow_back" onClick={()=>{props.reutrnRegister(true)}}/>
+                        <Button icon="arrow_back" onClick={()=>{props.returnRegister(true)}}/>
                         <Button text="Я готов!" bg="#10BB92" color="#0F494A" fontsize="20px" onClick={()=>{props.setRegister(true)}}/>
                     </div>
                 </div>

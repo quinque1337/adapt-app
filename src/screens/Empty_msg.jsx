@@ -3,8 +3,33 @@ import Input from "../components/Input";
 import Contact from "../components/Contact";
 import Button from "../components/Button";
 import lines from "../images/lines.png"
+import { useEffect, useState } from "react";
+import Cookies from 'universal-cookie';
+import axios from "axios";
 
 function Messenger(props) {
+
+    const [contacts, setContacts] = useState([]);
+    const cookies = new Cookies();
+    const [clientState, setClientState] = useState({});
+
+    useEffect(()=>{
+        axios.post('https://blazer321.ru/api/chats/get', {
+            token: cookies.get('token'),
+            opened_chat_id: undefined,
+            client_state: clientState
+        }).then((response)=>{
+            setClientState(response.data)
+            setContacts(response.data.last_chats)
+        }).catch((error)=>{
+            if (error.response) {
+                alert(error.response.data.response)
+              } else {
+                  alert('Ошибка соединения с API')
+              }
+        })
+    })
+
     return (
         <HashRouter><div id=''>
             <div id='top' className='top'>
@@ -12,20 +37,14 @@ function Messenger(props) {
                 <Input icon="search" text="Поиск" />
             </div>
             <div id='contacts' className='concha'>
-
-                <NavLink to="/fjdkjkd"><Contact
-                    src="https://cdn.discordapp.com/attachments/650015284693958686/780472191014666252/Final.gif"
-                    nickname="GreyDJ"
-                    lastmsg="Ты заставлял меня сосать но я тебе не сосала, ты заставлял меня сосать но"
-                    timemsg="10:32"
-                    msgcounter="12" /></NavLink>
-
-                <NavLink to="/"><Contact
-                    src="https://i.imgur.com/H0lyGBF.jpeg"
-                    nickname="quinque"
-                    lastmsg="cock"
-                    timemsg="10:32"
-                    msgcounter="0" /></NavLink>
+                {contacts.map((contact)=>
+                    <NavLink to="/"><Contact
+                    src={contact.avatar}
+                    nickname={contact.name}
+                    lastmsg={contact.last_message}
+                    timemsg={'00000'}
+                    msgcounter={contact.new_messages} /></NavLink>
+                )}
             </div>
         </div>
         <div className="emptybackground">

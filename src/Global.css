@@ -39,13 +39,13 @@ border: 3px solid rgba(255, 166, 0, 0);  /* padding вокруг плашки */
     --lasttime-color: rgba(16, 17, 18, 0.49);
     --timemsg-color: #13344B;
     --online-color: #266A99;
-    --button-icon-color: #2E80B9;
+    --button-icon-color: #1c4d70;
     --scrollbar-color: rgba(255, 255, 255, 0.192);
     --scrollbar-border: 3px solid rgba(255, 166, 0, 0);
     --search-color: rgba(0, 0, 0, 0.6);
     --search-bg-color: #B0C7EA;
     --outline: #6A72AF;
-    --msgcounter-color: #7D97D9;
+    --msgcounter-color: #10BB92;
     --message-time-color: #13344B;
     --active: #7C96D6;
     --messageinput-color: #002844;
@@ -119,6 +119,7 @@ h2 {
     border-radius: 10px;
     color: var(--button-icon-color);
     cursor: pointer;
+    max-height: 42px;
 }
 
 .button:hover {
@@ -511,7 +512,7 @@ h1,h2,h3,h4,h5 {
 }
 
 label {
-    color: var(label-color);
+    color: var(--label-color);
     font-size: 15px;
 }
 

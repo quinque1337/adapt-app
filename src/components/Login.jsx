@@ -11,7 +11,7 @@ function Login_input(props) {
     
     return (
         <div className='loginput'>
-            <Input label={props.label} className="message-input" text="Вот тута" onChange={setLogin} />
+            <Input type={props.type ? props.type : 'text'} label={props.label} className="message-input" text="Вот тута" onChange={setLogin} />
             <Button icon="arrow_forward" onClick={()=>{props.setLogin(login)}} />
         </div>
     )

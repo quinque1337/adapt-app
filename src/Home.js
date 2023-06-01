@@ -7,10 +7,11 @@ import Empty from './screens/Empty_msg'
 import Settings from './screens/Settings';
 import { useEffect, useState } from 'react';
 import axios from 'axios';
+import Cookies from 'universal-cookie';
 
 var public_version = false
 var tested_version = false
-var version = '1.6'
+var version = '1.7'
 var version_string = ''
 
 // пиздец что это
@@ -24,16 +25,49 @@ function Home() {
 
   // Данные для проверки логина и последующей регистрации
   const [login, setLogin] = useState('')
-  const [screen, openScreen] = useState(0)
+  const [screen, openScreen] = useState(4)
   const [loginInputError, setLoginInputError] = useState('');
 
     // Данные для регистрации
-  const [nickname, setNickname] = useState('')
-  const [password, setPassword] = useState('')
-  const [register, setRegister] = useState(false)
-  const [returnreg, ReturnRegister] = useState(false)
+  const [nickname, setNickname] = useState('');
+  const [password, setPassword] = useState('');
+  const [register, setRegister] = useState(false);
+  const [passwordOnLogin, setPasswordOnLogin] = useState('');
+  const [returnreg, ReturnRegister] = useState(false);
+  const [label, setLabel] = useState('');
+  const cookies = new Cookies();
+  const [theme, setTheme] = useState('');
+  const [loginInputError2, setlogin2inputerror] = useState('');
 
-  const [theme, setTheme] = useState('')
+  useEffect(()=>{
+    if (cookies.get('token') && cookies.get('token') != 'undefined') {
+      openScreen(1)
+    }
+  })
+
+  useEffect(()=>{
+    if (passwordOnLogin != '') {
+      axios.post('https://blazer321.ru/api/get_token', {
+        login: login,
+        password: passwordOnLogin
+      })
+      .then((response)=>{
+        cookies.set('token', response.data.token);
+        openScreen(1)
+      })
+      .catch((error)=>{
+        if (error.response) {
+          if (error.response.data.response === false) {
+            openScreen(2)
+          } else {
+            setlogin2inputerror(error.response.data.response)
+          }
+        } else {
+          setlogin2inputerror('Ошибка соединения с API')
+        }
+      })
+    }
+  }, [passwordOnLogin])
 
   // проверка логина
   useEffect(()=>{
@@ -41,20 +75,20 @@ function Home() {
       console.log(login)
       axios.get('https://blazer321.ru/api/user_registered/'+login).then((response)=>{
         response.data.response === true ? openScreen(3) : openScreen(2)
+        cookies.set('token', response.data.token);
       }).catch(function (error) {
         if (error.response) {
           if (error.response.data.response === false) {
             openScreen(2)
+          } else {
+            setLoginInputError(error.response.data.response)
           }
-        } else if (error.request) {
-          alert('Произошла ошибка при доступе к API');
         } else {
-          // Something happened in setting up the request that triggered an Error
-          alert('Error', error.message);
+            setLoginInputError('Ошибка соединения с API')
         }
       });
     } else if (login === undefined) {
-        setLoginInputError('Черкасов лох')
+        setLoginInputError('Введи что-нибудь')
     }
   }, [login]);
 
@@ -65,6 +99,22 @@ function Home() {
         login: login,
         name: nickname,
         password: password
+      })
+      .then(()=>{
+        axios.post('https://blazer321.ru/api/get_token', {
+          login: login,
+          password: password
+        })
+        .then((response)=>{
+          cookies.set('token', response.data.token);
+          openScreen(1)
+        })
+      })
+      .catch((error)=>{
+        if (error.response) {
+          setLabel(error.response.data.response)
+          setRegister(false)
+        }
       })
     }
   }, [nickname, password, register, login]);
@@ -79,6 +129,7 @@ function Home() {
 
     case 2:
       return <Register
+      label={label}
       h1="Мы еще не знакомы с вами"
       h2={`Зарегистрируйся, пожалуйста, ${login}`}
       setNickname={setNickname}
@@ -87,9 +138,12 @@ function Home() {
 
     case 3:
       return <LogInS2
+      type="password"
       h1="Привет"
       user="Егор"
-      h2="Введите свой пароль ниже" />
+      h2="Введите свой пароль ниже"
+      setLogin={setPasswordOnLogin}
+      label={loginInputError2} />
 
     case 4:
       return <LogIn

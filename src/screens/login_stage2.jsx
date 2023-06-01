@@ -13,7 +13,7 @@ function LogIn(props) {
                 <h2>{props.h2}</h2>
             </div>
             <div className='loginreturn'>
-                <Login className='logIn-Container'/>
+                <Login setLogin={props.setLogin} type={props.type} className='logIn-Container' label={props.label}/>
                 <div>
                     <ButtonN className="buttonreturn" user={props.user} />
                 </div>

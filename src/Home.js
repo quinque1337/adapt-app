@@ -11,7 +11,7 @@ import Cookies from 'universal-cookie';
 
 var public_version = false
 var tested_version = false
-var version = '1.7'
+var version = '1.8'
 var version_string = ''
 
 // пиздец что это
@@ -122,10 +122,10 @@ function Home() {
   switch (screen) {
 
     case 0:
-      return <Settings version={version_string}/>
+      return <div>deprecated</div>
 
     case 1:
-      return <Empty/>
+      return <Empty version={version_string}/>
 
     case 2:
       return <Register
@@ -152,8 +152,6 @@ function Home() {
       label={loginInputError}
       setLogin={setLogin} />
 
-    case 5:
-      return <Messenger />
     default:
       return <LogIn
       h1="Привет" 

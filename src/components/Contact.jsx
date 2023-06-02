@@ -11,7 +11,7 @@ function Contact(props) {
                 </div>
                 <div className='msgtext'>
                     <p className='lastmsg'>{props.lastmsg}</p>
-                    {props.msgcounter !== '0' ? <p className='msgcounter'>{props.msgcounter}</p> : ''}
+                    {props.msgcounter !== 0 ? <p className='msgcounter'>{props.msgcounter}</p> : ''}
                 </div>
             </div>
         </div>

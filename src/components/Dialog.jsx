@@ -16,8 +16,8 @@ function Dialog(props) {
             />
             <ChatSettings/>
             <ChatDate/>
-            <MessageContainer />
-            <Messageinput text={props.text}/>
+            <MessageContainer messages={props.messages} />
+            <Messageinput text={props.text} chat_info={props.chat_info}/>
         </div>
     )
 }

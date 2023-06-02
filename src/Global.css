@@ -626,3 +626,14 @@ label {
     top: 80px;
     color: var(--text-color);
 }
+
+.connecting {
+    width: 100%;
+    background: var(--label-color);
+    height: 40px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}

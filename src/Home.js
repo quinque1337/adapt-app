@@ -17,7 +17,7 @@ var version_string = ''
 // пиздец что это
 if (!tested_version) {public_version ? version_string+='_beta' : version_string+='_alpha'}
 else {public_version ? version_string+='_prod' : version_string+='_rc'}
-version_string+='_'+process.env.NODE_ENV.slice(0, 3)
+version_string+='_'+process.env.NODE_ENV
 
 var version_string = version+version_string
 

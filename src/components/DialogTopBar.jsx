@@ -14,7 +14,9 @@ function DialogTopBar(props) {
                 </div>
                 <div className='dialogbuttons'>
                     <Input icon="search"/>
-                    <Dialogbutton icon="settings" />
+                    <Dialogbutton icon="settings" onClick={()=>{
+                        props.settingsOpened ? props.setSettingsOpened(false) : props.setSettingsOpened(true)
+                    }} />
                 </div>
             </div>
         </div>

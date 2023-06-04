@@ -16,7 +16,7 @@ function Input(props) {
                 {props.icon}
             </span> : ''
             }
-            <input type={props.type} value={value} onKeyDown={(a)=>{props.onKeyDown(a)}} onChange={(v)=>{setValue(v.target.value);try{props.onChange(v.target.value)}catch{}}} onInput={props.onInput} className={props.className} placeholder={props.text} />
+            <input type={props.type} value={value} onKeyDown={(a)=>{try{props.onKeyDown(a)}catch{}}} onChange={(v)=>{setValue(v.target.value);try{props.onChange(v.target.value)}catch{}}} onInput={props.onInput} className={props.className} placeholder={props.text} />
         </div>
         {props.label ? <label>{props.label}</label> : ''}
         </div>

@@ -189,12 +189,16 @@ h2 {
     height: 50px;
     width: 50px;
     border-radius: 999px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .rightsettings > img {
     height: 42px;
     width: 42px;
     border-radius: 999px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .msgcon {
@@ -223,6 +227,7 @@ h2 {
 
 .nickname {
     color: var(--text-color);
+    padding-right: 10px;
 }
 
 .lastmsg {
@@ -303,6 +308,8 @@ a {
     height: 45px;
     width: 45px;
     border-radius: 999px;
+    object-fit: cover;
+    object-position: center;
 }
 
 .user, .aboutuser {
@@ -415,6 +422,15 @@ a {
     display: flex;
     justify-content: flex-end;
     margin-right: 10px;
+}
+.messagecon {
+    display: flex;
+    gap: 10px;
+    align-items: flex-end;
+}
+
+.opacity0 {
+    opacity: 0;
 }
 
 .logIn-Background {
@@ -581,6 +597,14 @@ label {
     justify-content: space-between;
 }
 
+.msgava {
+    width: 40px;
+    height: 40px;
+    border-radius: 1000px;
+    object-fit: cover;
+    object-position: center;
+}
+
 .width100 {
     width: 100%
 }
@@ -654,4 +678,29 @@ label {
     display: flex;
     flex-direction: column;
     gap: 10px;
+}
+
+.nickname, .username, .status {
+    text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    overflow: hidden;
+    white-space: nowrap;
+}
+
+.grid-new-chat {
+    height: var(--full-height);
+    display: grid;
+    align-items: center;
+    grid-template-rows: 1fr 10px 1fr;
+}
+
+.grid-new-chat-element {
+    display: flex;
+    gap: 10px;
+    flex-direction: column;
+}
+
+.grid-new-chat-or {
+    text-align: center;
+    color: var(--love-color);
 }

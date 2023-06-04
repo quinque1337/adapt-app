@@ -2,13 +2,18 @@ import { useEffect, useRef, useState } from 'react';
 import '../Global.css'
 import Message from './Message';
 import Cookies from 'universal-cookie';
+import 'intersection-observer'
+import { useIsVisible } from 'react-is-visible'
 
 function MessageContainer(props) {
 
     const bottomRef = useRef(null);
+    const topRef = useRef();
+    const isUserAtTop = useIsVisible(topRef)
     const [scrolled, setScrolled] = useState(false);
     const cookies = new Cookies();
     const [data, setData] = useState(props.messages)
+    const [lastMessage, setLastMessage] = useState(undefined)
     var old_date = 0
     var old_closely = [0, 0]
 
@@ -25,14 +30,11 @@ function MessageContainer(props) {
         var days = date.getDate();
         var month = date.getMonth();
         var year = date.getFullYear();
-        var options = { month: 'long' };
         var date = new Date(`${year}-${month}-${days}`);
         
-        var humanMonth = date.toLocaleString('ru-RU', options);
+        var humanDate = date.toLocaleString('ru-RU', {'month': 'long', 'day': 'numeric'});
 
-        var month = humanMonth;
-        var formattedTime = days + ' ' + month
-        return formattedTime
+        return humanDate + (year !== new Date().getFullYear() ? ' '+year : '')
     }
 
     function use_date(date) {
@@ -45,9 +47,18 @@ function MessageContainer(props) {
     useEffect(()=>{
         // сделайте потом как сообщения сделаете чтобы эта хрень вызывалась когда сообщения все прогрузились, ну типа просто переменную сообщений вниз в список поставьте
         // и еще как нибудь сделайте чтобы до непрочитанного не скроллилось хихи хаха
-        bottomRef.current?.scrollIntoView({});
-        setScrolled(true)
+        try{
+            if (props.messages[props.messages.length - 1] != lastMessage) {
+                bottomRef.current?.scrollIntoView({});
+                setLastMessage(props.messages[props.messages.length - 1])
+            }
+            setScrolled(true)
+        } catch {}
     })
+
+    useEffect(()=>{if(isUserAtTop){
+        console.log('user at top')
+    }}, [isUserAtTop])
     
     function getMessages() {
         if (props.messages) {return props.messages} else {return []}
@@ -68,21 +79,26 @@ function MessageContainer(props) {
 
     return (
             <div className='messages'>
-            {getMessages().map((message)=>
-                <div className='yes'>
-                    {use_date(message.datetime) ? <div className='date-container-normal'>
-                        {convert_msg_date(message.datetime)}
-                    </div> : ''}
-                    <Message 
-                        closely={closely_message_check(message.datetime, message.user_id)}
-                        msg={message.content}
-                        time={convert_msg_time(message.datetime)}
-                        type={message.type}/>
-                </div>
-            )}
+                <div ref={topRef} />
 
-            <div ref={bottomRef} />
-             {/* не удаляйте строчку выше */}
+                {getMessages().map((message)=>
+                    <div className='yes'>
+                        {use_date(message.datetime) ? <div className='date-container-normal'>
+                            {convert_msg_date(message.datetime)}
+                        </div> : ''}
+                        {message.type == 'info' ? 
+                        <div className='date-container-normal'>{message.content}</div> : 
+                        <Message
+                            closely={closely_message_check(message.datetime, message.user_id)}
+                            msg={message.content}
+                            time={convert_msg_time(message.datetime)}
+                            type={message.type}
+                            ava={message.avatar}/>}
+                    </div>
+                )}
+
+                <div ref={bottomRef} />
+                {/* не удаляйте строчку выше */}
             </div>
     )
 }

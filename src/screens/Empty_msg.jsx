@@ -8,6 +8,7 @@ import Cookies from 'universal-cookie';
 import axios from "axios";
 import Dialog from "../components/Dialog";
 import Settingscomp from "../components/Settings_comp"
+import NewChat from "./new_chat";
 
 function Messenger(props) {
 
@@ -20,6 +21,7 @@ function Messenger(props) {
     const [connecting, setConnecting] = useState('flex');
     const [openedConnections, soc] = useState([]);
     const [openedChat, setOpenedChat] = useState([]);
+    const [lastConnection, setLastConnection] = useState(undefined)
 
     function generatePassword(length) {
         var result = '';
@@ -41,6 +43,7 @@ function Messenger(props) {
         }
         let connection_code = generatePassword(128)
         openedConnections.push(connection_code)
+        setLastConnection(connection_code)
         axios.post('https://blazer321.ru/api/chats/get', {
             token: cookies.get('token'),
             opened_chat_id: opened_chat_id,
@@ -53,23 +56,31 @@ function Messenger(props) {
             setMessages(response.data.opened_chat_history)
             if (response.data.chat_info != null) {setChatInfo(response.data.chat_info)}
         }).catch((error)=>{
-            if (error.response) {
-                if (error.response.status != 408) {alert(error.response.data.response)}
-              } else {
-                  if (error.response.status != 408) {setConnecting('flex')}
-              }
+            if (error.response) {} else {
+                setConnecting('flex')
+                update(undefined)
+            }
         })
     }, [messages])
 
     function update(opened_chat) {
+        var oc = openedConnections
+        soc([])
         if (opened_chat != openedChat) {
             setMessages([])
             axios.post('https://blazer321.ru/api/chats/close', {
-                connections: openedConnections
+                connections: oc
             })
-            soc([])
             setOpenedChat(opened_chat)
         }
+    }
+
+    function convert_msg_time(datatime) {
+        var date = new Date(datatime * 1000);
+        var hours = date.getHours();
+        var minutes = "0" + date.getMinutes();
+        var formattedTime = hours + ':' + minutes.substr(-2)
+        return formattedTime
     }
 
     return (
@@ -79,6 +90,9 @@ function Messenger(props) {
                 <NavLink to="/settings" onClick={()=>{
                     update(undefined)
                 }}><Button icon="settings" /></NavLink>
+                <NavLink to="/new" onClick={()=>{
+                    update(undefined)
+                }}><Button icon="add" /></NavLink>
                 <Input icon="search" text="Поиск" />
             </div>
             <div id='contacts' className='concha'>
@@ -89,7 +103,7 @@ function Messenger(props) {
                     src={contact.avatar}
                     nickname={contact.name}
                     lastmsg={contact.last_message}
-                    timemsg={'00000'}
+                    timemsg={convert_msg_time(contact.datetime)}
                     msgcounter={contact.new_messages} /></NavLink>
                 )}
             </div>
@@ -123,6 +137,10 @@ function Messenger(props) {
                 element={
                     <Settingscomp version={props.version}/>
                 }
+            ></Route>
+            <Route
+                path="/new"
+                element={<NewChat />}
             ></Route>
         </Routes>
         </HashRouter>

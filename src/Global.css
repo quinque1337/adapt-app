@@ -637,3 +637,21 @@ label {
     justify-content: center;
     align-items: center;
 }
+
+.date-container-normal {
+    display: flex;
+    width: max-content;
+    background-color: var(--accent-color);
+    padding: 5px;
+    border-radius: 5px;
+    color: var(--text-color);
+    align-self: center;
+    margin-top: 10px;
+    margin-bottom: 10px;
+}
+
+.yes {
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+}

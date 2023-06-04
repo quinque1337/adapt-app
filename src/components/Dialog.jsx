@@ -14,8 +14,8 @@ function Dialog(props) {
                 src={props.src}
                 color="#6f6f6f"
             />
-            <ChatSettings/>
-            <ChatDate/>
+            {/* <ChatSettings/> */}
+            {/* <ChatDate/> */}
             <MessageContainer messages={props.messages} />
             <Messageinput text={props.text} chat_info={props.chat_info}/>
         </div>

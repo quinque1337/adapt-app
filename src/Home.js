@@ -11,7 +11,7 @@ import Cookies from 'universal-cookie';
 
 var public_version = false
 var tested_version = false
-var version = '1.8'
+var version = '0.10'
 var version_string = ''
 
 // пиздец что это

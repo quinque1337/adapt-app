@@ -1,9 +1,13 @@
-import { useState } from 'react';
+import { useEffect, useState } from 'react';
 import '../Global.css'
 
 function Input(props) {
     
     const [value, setValue] = useState(props.value ? props.value : '');
+
+    useEffect(()=>{
+        setValue(props.value)
+    }, [props.value])
 
     return (
         <div className='width100'><div className='bgsearch' style={{backgroundColor: props.bg}}>
@@ -12,7 +16,7 @@ function Input(props) {
                 {props.icon}
             </span> : ''
             }
-            <input type={props.type} value={value} onChange={(v)=>{setValue(v.target.value);try{props.onChange(v.target.value)}catch{}}} onInput={props.onInput} className={props.className} placeholder={props.text} />
+            <input type={props.type} value={value} onKeyDown={(a)=>{props.onKeyDown(a)}} onChange={(v)=>{setValue(v.target.value);try{props.onChange(v.target.value)}catch{}}} onInput={props.onInput} className={props.className} placeholder={props.text} />
         </div>
         {props.label ? <label>{props.label}</label> : ''}
         </div>

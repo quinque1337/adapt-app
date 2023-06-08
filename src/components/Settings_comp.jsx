@@ -47,6 +47,7 @@ function Settings(props) {
                         root.setAttribute( 'theme', theme );
                     }}/>
                 </div>
+                <Button text="Выйти" fontsize="20px" onClick={props.onClick}/>
                 <p class="withlove">From Adapt Team with love</p>
             </div>
             <Button text="Сохранить" bg="#10BB92" color="#0F494A" fontsize="20px"/>

@@ -135,7 +135,7 @@ function Messenger(props) {
             <Route
                 path="/settings"
                 element={
-                    <Settingscomp version={props.version}/>
+                    <Settingscomp version={props.version} onClick={()=>{props.Exit(true)}}/>
                 }
             ></Route>
             <Route

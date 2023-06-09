@@ -20,7 +20,7 @@ function Dialog(props) {
                 setSettingsOpened={setSettingsOpened}
                 settingsOpened={settingsOpened}
             />
-            {settingsOpened ? <ChatSettings chat_id={props.chat_info.id} /> : ''}
+            {settingsOpened ? <ChatSettings setSettingsOpened={setSettingsOpened} chat_id={props.chat_info.id} /> : ''}
             {/* <ChatDate/> */}
             <MessageContainer messages={props.messages} />
             <Messageinput text={props.text} chat_info={props.chat_info}/>

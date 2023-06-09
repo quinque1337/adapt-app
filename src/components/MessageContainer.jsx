@@ -15,7 +15,9 @@ function MessageContainer(props) {
     const [data, setData] = useState(props.messages)
     const [lastMessage, setLastMessage] = useState(undefined)
     var old_date = 0
+    var old_date2 = 0
     var old_closely = [0, 0]
+    var old_closely_ava = [0, 0]
 
     function convert_msg_time(datatime) {
         var date = new Date(datatime * 1000);
@@ -42,6 +44,14 @@ function MessageContainer(props) {
         let super_old_date = old_date
         old_date = date
         return date != super_old_date
+    }
+
+    function use_date_2(date) {
+        date = convert_msg_date(date)
+        let super_old_date = old_date2
+        old_date2 = date
+        console.log(date, super_old_date, date != super_old_date)
+        return date == super_old_date
     }
 
     useEffect(()=>{
@@ -77,6 +87,13 @@ function MessageContainer(props) {
         return condition_a && condition_b
     }
 
+    function closely_ava_check(date, author) {
+        var condition_a = author == old_closely_ava[1]
+        var condition_b = use_date_2(date)
+        old_closely_ava = [date, author]
+        return condition_a && condition_b
+    }
+
     return (
             <div className='messages'>
                 <div ref={topRef} />
@@ -90,6 +107,7 @@ function MessageContainer(props) {
                         <div className='date-container-normal'>{message.content}</div> : 
                         <Message
                             closely={closely_message_check(message.datetime, message.user_id)}
+                            closely_ava={closely_ava_check(message.datetime, message.user_id)}
                             msg={message.content}
                             time={convert_msg_time(message.datetime)}
                             type={message.type}

@@ -91,7 +91,7 @@ function Messenger(props) {
 
     return (
         <HashRouter><div id=''>
-            <div className="connecting fadein" style={{display: connecting}}>Подключение...</div>
+            <div className="connecting fadein" style={{display: connecting}}>Отключено</div>
             <div id='top' className='top'>
                 <NavLink to="/settings" onClick={()=>{
                     update(undefined)

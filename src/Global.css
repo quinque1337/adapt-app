@@ -82,6 +82,21 @@ border: 3px solid rgba(255, 166, 0, 0);  /* padding вокруг плашки */
     --bg-setname-color: rgb(0, 22, 37);
 }
 
+body {
+    background: var(--bg-color);
+}
+
+.code-window {
+    height: calc(100vh - 20px);
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+}
+
+.code-window > div > h1, .code-window > div > h3 {
+    margin-top: 10px;
+}
+
 .cet-control-icon, .cet-title {color: var(--text-color);}
 .cet-control-icon > svg {fill: var(--text-color)!important}
 
@@ -426,7 +441,7 @@ a {
 .messagecon {
     display: flex;
     gap: 10px;
-    align-items: flex-end;
+    align-items: flex-start;
 }
 
 .opacity0 {

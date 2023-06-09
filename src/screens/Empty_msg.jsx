@@ -13,7 +13,7 @@ import NewChat from "./new_chat";
 function Messenger(props) {
 
     const [contacts, setContacts] = useState([]);
-    const [chatInfo, setChatInfo] = useState({'avatar': '', 'name': '', 'status': ''});
+    const [chatInfo, setChatInfo] = useState({'avatar': `https://blazer321.ru/res/ava%20(${Math.floor(Math.random() * 16) + 1}).png`, 'name': 'Загрузка...', 'status': 'Подождите, пожалуйста'});
     const cookies = new Cookies();
     const [clientState, setClientState] = useState({});
     const [messages, setMessages] = useState([]);
@@ -22,6 +22,7 @@ function Messenger(props) {
     const [openedConnections, soc] = useState([]);
     const [openedChat, setOpenedChat] = useState([]);
     const [lastConnection, setLastConnection] = useState(undefined)
+    const [chatUpdates, updateChats] = useState()
 
     function generatePassword(length) {
         var result = '';
@@ -42,7 +43,7 @@ function Messenger(props) {
             opened_chat_id = null
         }
         let connection_code = generatePassword(128)
-        openedConnections.push(connection_code)
+        try{openedConnections.push(connection_code)}catch{}
         setLastConnection(connection_code)
         axios.post('https://blazer321.ru/api/chats/get', {
             token: cookies.get('token'),
@@ -61,15 +62,20 @@ function Messenger(props) {
                 update(undefined)
             }
         })
-    }, [messages])
+    }, [messages, chatUpdates])
 
     function update(opened_chat) {
+        setChatInfo({'avatar': `https://blazer321.ru/res/ava%20(${Math.floor(Math.random() * 16) + 1}).png`, 'name': 'Загрузка...', 'status': 'Подождите, пожалуйста'})
+        updateChats(opened_chat)
         var oc = openedConnections
-        soc([])
+        soc(opened_chat)
         if (opened_chat != openedChat) {
             setMessages([])
             axios.post('https://blazer321.ru/api/chats/close', {
                 connections: oc
+            })
+            .catch(()=>{
+
             })
             setOpenedChat(opened_chat)
         }
@@ -85,7 +91,7 @@ function Messenger(props) {
 
     return (
         <HashRouter><div id=''>
-            <div className="connecting fadein" style={{display: connecting}}>Подключение...</div>
+            <div className="connecting fadein" style={{display: connecting}}>Отключено</div>
             <div id='top' className='top'>
                 <NavLink to="/settings" onClick={()=>{
                     update(undefined)
@@ -135,7 +141,7 @@ function Messenger(props) {
             <Route
                 path="/settings"
                 element={
-                    <Settingscomp version={props.version}/>
+                    <Settingscomp version={props.version} onClick={()=>{props.Exit(true)}}/>
                 }
             ></Route>
             <Route

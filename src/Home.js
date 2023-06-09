@@ -11,7 +11,7 @@ import Cookies from 'universal-cookie';
 
 var public_version = false
 var tested_version = false
-var version = '0.10'
+var version = '0.13'
 var version_string = ''
 
 // пиздец что это
@@ -33,15 +33,30 @@ function Home() {
   const [password, setPassword] = useState('');
   const [register, setRegister] = useState(false);
   const [passwordOnLogin, setPasswordOnLogin] = useState('');
-  const [returnreg, ReturnRegister] = useState(false);
   const [label, setLabel] = useState('');
   const cookies = new Cookies();
-  const [theme, setTheme] = useState('');
   const [loginInputError2, setlogin2inputerror] = useState('');
+  const [returnreg, setReturn] = useState(false);
+  const [exit_user, setExit] = useState(false);
+
+  useEffect(()=>{
+    if (returnreg == true) {
+      openScreen(4);
+      return setReturn(false);
+    }
+  })
 
   useEffect(()=>{
     if (cookies.get('token') && cookies.get('token') != 'undefined') {
-      openScreen(1)
+      openScreen(1);
+    }
+  })
+
+  useEffect(()=>{
+    if (exit_user == true) {
+      openScreen(4);
+      cookies.remove('token');
+      return setExit(false);
     }
   })
 
@@ -125,7 +140,9 @@ function Home() {
       return <div>deprecated</div>
 
     case 1:
-      return <Empty version={version_string}/>
+      return <Empty 
+      Exit = {setExit}
+      version={version_string}/>
 
     case 2:
       return <Register
@@ -140,10 +157,11 @@ function Home() {
       return <LogInS2
       type="password"
       h1="Привет"
-      user="Егор"
+      user={login}
       h2="Введите свой пароль ниже"
       setLogin={setPasswordOnLogin}
-      label={loginInputError2} />
+      label={loginInputError2}
+      Return={setReturn} />
 
     case 4:
       return <LogIn

@@ -15,7 +15,7 @@ function LogIn(props) {
             <div className='loginreturn'>
                 <Login setLogin={props.setLogin} type={props.type} className='logIn-Container' label={props.label}/>
                 <div>
-                    <ButtonN className="buttonreturn" user={props.user} />
+                    <ButtonN className="buttonreturn" user={props.user} onClick={()=>{props.Return(true)}}/>
                 </div>
             </div>
 

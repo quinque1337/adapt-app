@@ -8,7 +8,7 @@ import axios from 'axios';
 function Chat_Settings(props) {
 
     const [chatCodeWindowOpened, setChatCodeWindowOpened] = useState(false)
-    const [chatCode, setChatCode] = useState('Нету')
+    const [chatCode, setChatCode] = useState('Загрузка...')
     const cookies = new Cookies();
 
     return (
@@ -21,7 +21,15 @@ function Chat_Settings(props) {
                     document.getElementById('root').style.filter = 'blur(8px)'
                     document.getElementById('root').style.pointerEvents = 'none'
                     document.getElementById('root').style.userSelect = 'none'
-                    console.log(props)
+                    axios.post(`https://blazer321.ru/api/chats/${props.chat_id}/get_code`, {token: cookies.get('token')})
+                    .then((response)=>{
+                        setChatCode(response.data.code)
+                    })
+                    .catch((error)=>{
+                        if (error.response.data.response) {
+                            alert(error.response.data.response)
+                        } else {alert('Произошла ошибка 11037')}
+                    })
                 }}
                 onUnload={()=>{
                     props.setSettingsOpened(false)

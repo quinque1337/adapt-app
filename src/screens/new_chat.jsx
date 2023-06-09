@@ -25,7 +25,15 @@ function NewChat(props) {
     }
 
     function join_chat() {
-        
+        axios.post(`https://blazer321.ru/api/chats/${chatCode}/join/`, {
+            token: cookies.get('token')
+        }).catch((error)=>{
+            if (error.response) {
+                alert(error.response.data.response)
+            } else {
+                alert('Ошибка соединения с API')
+            }
+        })
     }
 
     return (

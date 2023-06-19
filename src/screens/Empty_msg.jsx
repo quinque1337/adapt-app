@@ -90,7 +90,7 @@ function Messenger(props) {
     }
 
     return (
-        <HashRouter><div id=''>
+        <HashRouter><div id='' className="penis">
             <div className="connecting fadein" style={{display: connecting}}>Отключено</div>
             <div id='top' className='top'>
                 <NavLink to="/settings" onClick={()=>{

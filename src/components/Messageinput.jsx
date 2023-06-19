@@ -32,7 +32,7 @@ function Messageinput(props) {
             <Dialogbutton className="buttondialog" icon="attach_file"></Dialogbutton>
             <Input onKeyDown={(a)=>{
               if (a.code == 'Enter') {send()}
-            }} value={inputText} onInput={(inp) => {setInputText(inp.target.value)}} className="message-input" text="Речевой поток начинается здесь..." />
+            }} value={inputText} onInput={(inp) => {setInputText(inp.target.value)}} className2='message-input-container' className="message-input" text="Речевой поток начинается здесь..." />
             <Dialogbutton className="buttondialog" icon="mood"></Dialogbutton>
             {inputText ? <Dialogbutton className="buttondialog fadein" icon="send" onClick={()=>{
               send()

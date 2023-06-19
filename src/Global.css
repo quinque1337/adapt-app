@@ -43,17 +43,18 @@ border: 3px solid rgba(255, 166, 0, 0);  /* padding вокруг плашки */
     --scrollbar-color: rgba(255, 255, 255, 0.192);
     --scrollbar-border: 3px solid rgba(255, 166, 0, 0);
     --search-color: rgba(0, 0, 0, 0.6);
-    --search-bg-color: #B0C7EA;
+    --search-bg-color: #8fb4eb;
     --outline: #6A72AF;
     --msgcounter-color: #10BB92;
     --message-time-color: #13344B;
     --active: #7C96D6;
-    --messageinput-color: #002844;
+    --messageinput-color: #ffffff73;
     --message-me-color:#D1D1F5;
     --label-color: #FF6969;
     --love-color: #266a99;
     --bg-active-color: #568fb7;
     --bg-setname-color: #B0C7EA;
+    --in-msg-time-color: rgba(0, 0, 0, 0.5);
 }
 :root {
     --bg-color:#00111C;
@@ -80,6 +81,7 @@ border: 3px solid rgba(255, 166, 0, 0);  /* padding вокруг плашки */
     --love-color: #266a99;
     --bg-active-color: #00416E;
     --bg-setname-color: rgb(0, 22, 37);
+    --in-msg-time-color: rgba(255, 255, 255, 0.5);
 }
 
 body {
@@ -143,6 +145,10 @@ h2 {
 
 .button:active {
     transform: scale(0.95);
+}
+
+.message-input-container {
+background-color: transparent!important;
 }
 
 .bgsearch {
@@ -265,6 +271,19 @@ p {margin: 0;}
     display: flex ;
     gap: 10px;
     flex-direction: column;
+
+    max-height: 650px;
+    overflow-y: scroll!important;
+    padding: 3px!important;
+    margin: -3px!important;
+    margin-top: 10px!important;
+
+    height: 90%;
+    border-radius: 10px;
+}
+
+.concha::-webkit-scrollbar {
+    width: 0px;
 }
 
 .msgcounter {
@@ -382,6 +401,7 @@ a {
     align-items: center;
     padding-left: 5px;
     padding: 0px 5px;
+    backdrop-filter: blur(25px);
 }
 
 .message-input::placeholder {
@@ -424,7 +444,7 @@ a {
     display: flex;
     flex-direction: column-reverse;
     font-size: 13px;
-    color: rgba(255, 255, 255, 0.5);
+    color: var(--in-msg-time-color);
     padding-left: 10px;
 }
 
@@ -718,4 +738,8 @@ label {
 .grid-new-chat-or {
     text-align: center;
     color: var(--love-color);
+}
+
+.penis {
+    height: calc(var(--full-height) - 10px);
 }

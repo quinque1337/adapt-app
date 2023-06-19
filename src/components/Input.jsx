@@ -10,7 +10,7 @@ function Input(props) {
     }, [props.value])
 
     return (
-        <div className='width100'><div className='bgsearch' style={{backgroundColor: props.bg}}>
+        <div className='width100'><div className={'bgsearch '+props.className2} style={{backgroundColor: props.bg}}>
             { props.icon ?
             <span className="material-symbols-outlined">
                 {props.icon}

@@ -13,8 +13,15 @@ npm start
 ```
 
 ---
+
 ## Launch the full application
 1. Install Backend: isamirivers/adapt-backend
 2. Install this Frontend.
+
 ---
+
 **Attention**: The website blazer321.ru/web is currently unavailable.
+
+---
+## Images:
+![Unt12321312412tled](https://github.com/user-attachments/assets/05abc19d-e792-47f2-b07e-314cb58e5e29)

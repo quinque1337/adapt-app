@@ -1,9 +1,20 @@
-### `npm start`
+# Adapt Frontend
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Frontend for [isamirivers/adapt-backend](https://github.com/isamirivers/adapt-backend?tab=readme-ov-file#adapt-backend)
 
-### `blazer321.ru/web`
+---
 
-![image](https://github.com/quinque1337/adapt-app/assets/82111939/557cff61-1351-45a4-b1bc-5c2a7b7c8b67)
+## Run frontend
 
+To start the frontend, run the command:
+
+```bash
+npm start
+```
+
+---
+## Launch the full application
+1. Install Backend: isamirivers/adapt-backend
+2. Install this Frontend.
+---
+**Attention**: The website blazer321.ru/web is currently unavailable.

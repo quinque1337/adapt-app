@@ -12,7 +12,7 @@ function NewChat(props) {
     const cookies = new Cookies();
 
     function create_chat() {
-        axios.post('https://blazer321.ru/api/chats/create', {
+        axios.post('https://adapt-messenger.ru/api/chats/create', {
             token: cookies.get('token'),
             chat_name: chatName
         }).catch((error)=>{
@@ -25,7 +25,7 @@ function NewChat(props) {
     }
 
     function join_chat() {
-        axios.post(`https://blazer321.ru/api/chats/${chatCode}/join/`, {
+        axios.post(`https://adapt-messenger.ru/api/chats/${chatCode}/join/`, {
             token: cookies.get('token')
         }).catch((error)=>{
             if (error.response) {

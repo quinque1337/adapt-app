@@ -88,7 +88,7 @@ function Home() {
   useEffect(()=>{
     if (login !== '' && login !== undefined) {
       console.log(login)
-      axios.get('https://blazer321.ru/api/user_registered/'+login).then((response)=>{
+      axios.get('https://adapt-messenger.ru/api/user_registered/'+login).then((response)=>{
         response.data.response === true ? openScreen(3) : openScreen(2)
         cookies.set('token', response.data.token);
       }).catch(function (error) {
@@ -110,13 +110,13 @@ function Home() {
   useEffect(()=>{
     console.log(nickname, password, register)
     if (nickname !== '' && password !== '' && register) {
-      axios.post('https://blazer321.ru/api/register_user', {
+      axios.post('https://adapt-messenger.ru/api/register_user', {
         login: login,
         name: nickname,
         password: password
       })
       .then(()=>{
-        axios.post('https://blazer321.ru/api/get_token', {
+        axios.post('https://adapt-messenger.ru/api/get_token', {
           login: login,
           password: password
         })

@@ -20,7 +20,7 @@ npm start
 
 ---
 
-**Attention**: The website blazer321.ru/web is currently unavailable.
+**Attention**: The website **adapt-messenger.ru/web** is currently available.
 
 ---
 ## Images:

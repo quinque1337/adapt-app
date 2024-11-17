@@ -45,7 +45,7 @@ function Messenger(props) {
         let connection_code = generatePassword(128)
         try{openedConnections.push(connection_code)}catch{}
         setLastConnection(connection_code)
-        axios.post('https://blazer321.ru/api/chats/get', {
+        axios.post('https://adapt-messenger.ruu/api/chats/get', {
             token: cookies.get('token'),
             opened_chat_id: opened_chat_id,
             client_state: clientState,
@@ -65,13 +65,13 @@ function Messenger(props) {
     }, [messages, chatUpdates])
 
     function update(opened_chat) {
-        setChatInfo({'avatar': `https://blazer321.ru/res/ava%20(${Math.floor(Math.random() * 16) + 1}).png`, 'name': 'Загрузка...', 'status': 'Подождите, пожалуйста'})
+        setChatInfo({'avatar': `https://adapt-messenger.ru/res/ava%20(${Math.floor(Math.random() * 16) + 1}).png`, 'name': 'Загрузка...', 'status': 'Подождите, пожалуйста'})
         updateChats(opened_chat)
         var oc = openedConnections
         soc(opened_chat)
         if (opened_chat != openedChat) {
             setMessages([])
-            axios.post('https://blazer321.ru/api/chats/close', {
+            axios.post('https://adapt-messenger.ru/api/chats/close', {
                 connections: oc
             })
             .catch(()=>{

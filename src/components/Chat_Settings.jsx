@@ -21,7 +21,7 @@ function Chat_Settings(props) {
                     document.getElementById('root').style.filter = 'blur(8px)'
                     document.getElementById('root').style.pointerEvents = 'none'
                     document.getElementById('root').style.userSelect = 'none'
-                    axios.post(`https://blazer321.ru/api/chats/${props.chat_id}/get_code`, {token: cookies.get('token')})
+                    axios.post(`https://adapt-messenger.ru/api/chats/${props.chat_id}/get_code`, {token: cookies.get('token')})
                     .then((response)=>{
                         setChatCode(response.data.code)
                     })
@@ -43,7 +43,7 @@ function Chat_Settings(props) {
                             <h1>{chatCode}</h1>
                         </div>
                         <Button text="Сгенерировать" fontsize="20px" onClick={()=>{
-                            axios.post(`https://blazer321.ru/api/chats/${props.chat_id}/generate_code`,
+                            axios.post(`https://adapt-messenger.ru/api/chats/${props.chat_id}/generate_code`,
                             {token: cookies.get('token')})
                             .then((response)=>{
                                 setChatCode(response.data.code)

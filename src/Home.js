@@ -88,7 +88,7 @@ function Home() {
   useEffect(()=>{
     if (login !== '' && login !== undefined) {
       console.log(login)
-      axios.get('https://aadapt-messenger.ru/api/user_registered/'+login).then((response)=>{
+      axios.get('https://adapt-messenger.ru/api/user_registered/'+login).then((response)=>{
         response.data.response === true ? openScreen(3) : openScreen(2)
         cookies.set('token', response.data.token);
       }).catch(function (error) {

@@ -11,7 +11,7 @@ function Messageinput(props) {
 
     function send() {
       if (inputText.trim() == '') {return}
-      axios.post(`https://blazer321.ru/api/chats/${props.chat_info.id}/send`, {
+      axios.post(`https://adapt-messenger.ru/api/chats/${props.chat_info.id}/send`, {
         content: inputText,
         token: cookies.get('token')
       })
